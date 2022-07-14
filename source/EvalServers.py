@@ -1,14 +1,11 @@
 #!/bin/python3
 #https://stackoverflow.com/questions/39913847/is-there-a-way-to-compile-a-python-application-into-static-binary
-from fileinput import filename
 import os
-from sys import stdout
 import subprocess
 import json
 import platform
 import socket
 from datetime import datetime
-from telnetlib import theNULL
 import psutil
 import wmi
 import winreg
@@ -72,29 +69,6 @@ def getDetalleSO():
 	distro=platform.system()+ " "+ platform.release()+" "+ platform.win32_edition()
 	return product_name
 
-def getRol():
-	Rol=""
-	tecnologia=[]
-	w=wmi.WMI()
-	if installedfeatures:
-		for u in installedfeatures:
-			if "Web Server (IIS)" in u['name']:
-				Rol="WEB"
-				version=read_reg(winreg.HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\InetStp\\","VersionString")
-				tecnologia.append({"tecnologia":"IIS","version":version})
-		del u
-
-		for i in softwareinstalled:
-			if "Database Engine Services" in i['nombre']:
-				tecnologia.append({"tecnologia":i['nombre'],"version":i['version']})
-				if Rol != "WEB":
-					Rol="Base de Datos"
-	else:
-		logging.error("No se detectan caracteristicas de servidor")
-
-
-	return {"rol":Rol,"tecs":tecnologia}
-
 def getIPAddress():
 	net_int=[]
 	IPS=psutil.net_if_addrs()
@@ -126,13 +100,6 @@ def getInstalledSoftware():
 		software.append({"identificador":u.IdentifyingNumber,"nombre":u.Caption,"version":u.Version,"fecha_instalacion":u.InstallDate,"localizacion":u.InstallSource,"vendor":u.Vendor})
 	del u
 	return software
-
-
-
-def sanBytes(valor):
-	#valor=str(valor).replace("b'","")
-	valor=str(valor.decode(ascii)).strip()
-	return valor
 
 def encodestring(base64_bytes):
 	base64_output=base64.b64encode(base64_bytes)
