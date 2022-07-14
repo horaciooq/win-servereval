@@ -14,8 +14,9 @@ import base64
 
 logging.basicConfig(filename='evalserver_error.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
 directorio=os.getcwd()
-
-
+fecha=datetime.now()
+fecha_str=str(fecha.day) + "_" + str(fecha.month) + "_" + str(fecha.year) + "_" + str(fecha.hour) + "_" + str(fecha.minute) + "_" + str(fecha.second)    
+	
 
 def read_reg(hkey,camino,k):
 	valor=""
@@ -109,9 +110,7 @@ def getScanInfo():
 	version="1.0"
 	scan_info={}
 	user=os.getlogin()
-	fecha=datetime.now()
-	fecha=str(fecha.day) + "_" + str(fecha.month) + "_" + str(fecha.year) + "_" + str(fecha.hour) + "_" + str(fecha.minute) + "_" + str(fecha.second)    
-	scan_info.update({"fecha_escaneo":fecha})
+	scan_info.update({"fecha_escaneo":fecha.strftime("%m/%d/%Y %I:%M:%S %p")})
 	scan_info.update({"usuario_ejecutor":user})
 	scan_info.update({"version_script":version})
 	scan_info.update({"tipo_de_servidor":""})
@@ -177,7 +176,7 @@ def getResultados():
 	resultados=[getSRV_17(),getSRV_18(),getSRV_19(),getSRV_21()]
 	return resultados
 
-filename='resultado_' + getSysInfo()['hostname'] + '_' + getScanInfo()['fecha_escaneo'] 
+filename='resultado_' + getSysInfo()['hostname'] + '_' + fecha_str 
 
 def getjson():
 	data={}
