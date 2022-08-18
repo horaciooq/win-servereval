@@ -44,7 +44,7 @@ def getBanner():
     print("[*]     Este script te ayudara recolectar las evidencias    [*]")
     print("[*]     solicitadas en IEECO                                [*]")
     print("[*]                                                         [*]")
-    print("[*]     Creado por: CSA EKT csa-ekt@totalsec.com.mx         [*]")
+    print("[*]     Creado por: CSA GS (dsi-csa@gruposalinas.com.mx)    [*]")
     print("[-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-]")
     print("")
     return ""
