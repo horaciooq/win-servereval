@@ -131,7 +131,7 @@ def getSysInfo():
 
 def getSRV_17():
 	resultado={}
-	resultado.update({"id":"SRV-DSI-CSA-17"})
+	resultado.update({"id":"SRV-GS-CSA-01"})
 	resultado.update({"nombre":"Asegurar que cuenta con versiones de tecnolog&iacute;a soportadas por el fabricante. S&oacute;lo se tomar&aacute; como valida la versi&oacute;n actual la versi&oacute;n actual - 1 o la versi&oacute;n LTS Long Term Support"})
 	resultado.update({"descripcion":"Disminuye el riesgo de vulnerabilidades tipo 0-day vulnerabilidades recientes sin parches"})
 	resultado.update({"remediacion":"Adjunta evidencia de las &uacute;ltimas versiones de sistema operativo utilizadas"})
@@ -141,7 +141,7 @@ def getSRV_17():
 
 def getSRV_18():
 	resultado={}
-	resultado.update({"id":"SRV-DSI-CSA-18"})
+	resultado.update({"id":"SRV-GS-CSA-02"})
 	resultado.update({"nombre":"Asegurar que no tiene salida a internet"})
 	resultado.update({"descripcion":"Disminuye el riesgo de ataques de persistencia en los servidores"})
 	resultado.update({"remediacion":"Deshabilitar la conexi&oacute;n a internet del equipo ya sea por firewall f&iacute;sico firewall local o declarando la no salida a internet en las rutas de la red. \n Ejecutar el comando ping 8.8.8.8 El resultado deber&aacute;n ser todos los paquetes perdidos"})
@@ -154,7 +154,7 @@ def getSRV_18():
 
 def getSRV_19():
 	resultado={}
-	resultado.update({"id":"SRV-DSI-CSA-19"})
+	resultado.update({"id":"SRV-GS-CSA-03"})
 	resultado.update({"nombre":"Asegurar que solo se estan utilizando los puertos y servicios requeridos por el sistema"})
 	resultado.update({"descripcion":"Protege la confidencialidad de la informaci&oacute;n de los datos de administraci&oacute;n del servidor."})
 	resultado.update({"remediacion":"Deshabilitar / Desinstalar todos los servicios que son considerados inseguros y no son necesarios para el sistema. Por ejemplo:\n- TeamViewer\n- VNC y sus derivados\n- Telnet Server\n- Servicios de correo,\n- Etc. Cerrar todos los puertos no cifrados y / o no necesarios para el sistema. Por ejemplo- 5800- 5938- 25- 110- 143- 995- 993- 465- Etc. Enviar la salida de los siguientes comandos \nLinux:\nnetstat -noa \nsystemctl list-unit-files --type service \nWindows:\nnetstat -noa\ntasklist"})
@@ -164,7 +164,7 @@ def getSRV_19():
 
 def getSRV_21():
 	resultado={}
-	resultado.update({"id":"SRV-DSI-CSA-21"})
+	resultado.update({"id":"SRV-GS-CSA-04"})
 	resultado.update({"nombre":"Asegurar que cuenta con Antivirus Actualizado"})
 	resultado.update({"descripcion":"Disminuye el riesgo de virus inform&aacute;tico."})
 	resultado.update({"remediacion":"Instalar el software de antivirus corporativo\nEnviar una imagen del servicio de antivirus corriendo"})
